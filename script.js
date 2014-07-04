@@ -2,14 +2,17 @@ document.addEventListener("DOMContentLoaded", init, false);
 
 function init()
 {
+  var check=0
   var canvas = document.getElementById("canvas");
   var rectButton = document.getElementById('rectButton');
   var circleButton = document.getElementById('circleButton');
 
   rectButton.onclick = function(){
+    canvas.removeEventListener("click",drawCircle,false);
     canvas.addEventListener("click",drawRect,false);
   }
   circleButton.onclick=function(){
+   canvas.removeEventListener("click",drawRect,false);
    canvas.addEventListener("click",drawCircle,false); 
  }
 }
