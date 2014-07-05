@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", init, false);
 
 var lastClick=[0,0];
 var numOfClicks=0;
-
+var colors = ["#e2c9b9","#4b9484","#434f7b","#b5e622","#ffbf00"];
+var colorsLength=colors.length;
 function init()
 {
   var check=0
@@ -10,6 +11,11 @@ function init()
   var rectButton = document.getElementById('rectButton');
   var circleButton = document.getElementById('circleButton');
   var lineButton = document.getElementById('lineButton');
+  var colorButton = document.getElementById('colorButton');
+
+  colorButton.onclick = function(){
+    switchColor();
+  }
 
   rectButton.onclick = function(){
     canvas.removeEventListener("click",drawCircle,false);
@@ -89,5 +95,13 @@ function drawLine(event){
     //console.log(lastClick[0]);
     //console.log(lastClick[1]);
  }
+
+ function switchColor(){
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext('2d');
+        randomColor=Math.floor((Math.random() * colorsLength)); 
+        console.log(colors[randomColor]);
+        context.strokeStyle=colors[randomColor];
+    }
 
 
