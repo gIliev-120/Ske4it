@@ -99,7 +99,13 @@ function drawLine(event){
  function switchColor(){
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext('2d');
+        //var colorDiv =document.getElementById("showColor");
+        
         randomColor=Math.floor((Math.random() * colorsLength)); 
+        var color = 'background:'+colors[randomColor]+';';
+        console.log(color);
+        //colorDiv.style='background:'+randomColor+';';
+        document.getElementById("showColor").style=color;
         console.log(colors[randomColor]);
         context.strokeStyle=colors[randomColor];
     }
