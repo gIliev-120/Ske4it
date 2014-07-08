@@ -42,8 +42,10 @@ function getPosition(event)
  var canvas = document.getElementById("canvas");
  var context = canvas.getContext('2d');
 
- x = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
- y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+ x = event.clientX; 
+ y = event.clientY; 
+ 
+
  return [x,y];
 }
 
