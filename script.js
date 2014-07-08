@@ -2,8 +2,10 @@ document.addEventListener("DOMContentLoaded", init, false);
 
 var lastClick=[0,0];
 var numOfClicks=0;
-var colors = ["#e2c9b9","#4b9484","#434f7b","#b5e622","#ffbf00"];
-var colorsLength=colors.length;
+
+
+//var colors = ["#e2c9b9","#4b9484","#434f7b","#b5e622","#ffbf00"];
+//var colorsLength=colors.length;
 function init()
 {
   var check=0
@@ -12,14 +14,21 @@ function init()
   var circleButton = document.getElementById('circleButton');
   var lineButton = document.getElementById('lineButton');
   var colorButton = document.getElementById('colorButton');
+  var imported = document.createElement('script');
+  imported.src = 'jscolor\\jscolor.js';
+  document.body.appendChild(imported);
+
 
   colorButton.onclick = function(){
+    
     switchColor();
+    
   }
 
   rectButton.onclick = function(){
     canvas.removeEventListener("click",drawCircle,false);
     canvas.removeEventListener("click",drawLine,false);
+
     canvas.addEventListener("click",drawRect,false);
   }
   circleButton.onclick=function(){
@@ -54,6 +63,7 @@ function drawRect(event){
   var context = canvas.getContext('2d');
   x=getPosition(event)[0] - canvas.offsetLeft;
   y=getPosition(event)[1] - canvas.offsetTop;
+
   context.beginPath();
   context.strokeRect(x,y,30,30);  
   context.stroke();
@@ -99,17 +109,19 @@ function drawLine(event){
  }
 
  function switchColor(){
+        colorButton.color.showPicker();    
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext('2d');
-        //var colorDiv =document.getElementById("showColor");
+        var myPicker = new jscolor.color(document.getElementById('colorButton'));
+        var choosedColor=myPicker.toString();
+        var convertedColor="#"+choosedColor+"";
+        //console.log(a)
         
-        randomColor=Math.floor((Math.random() * colorsLength)); 
-        var color = 'background:'+colors[randomColor]+';';
-        console.log(color);
-        //colorDiv.style='background:'+randomColor+';';
-        document.getElementById("showColor").style=color;
-        console.log(colors[randomColor]);
-        context.strokeStyle=colors[randomColor];
+        
+        context.strokeStyle=convertedColor;
+
+      //  colorButton.color.hidePicker();
+
     }
 
 
