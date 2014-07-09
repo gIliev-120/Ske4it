@@ -11,7 +11,7 @@ function init()
   var check=0
   var canvas = document.getElementById("canvas");
  canvas.width = (window.innerWidth-13);
- canvas.height = (window.innerHeight-20);
+ canvas.height = (window.innerHeight-27);
   var rectButton = document.getElementById('rectButton');
   var circleButton = document.getElementById('circleButton');
   var lineButton = document.getElementById('lineButton');
