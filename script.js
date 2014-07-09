@@ -10,6 +10,8 @@ function init()
 {
   var check=0
   var canvas = document.getElementById("canvas");
+ canvas.width = (window.innerWidth-13);
+ canvas.height = (window.innerHeight-20);
   var rectButton = document.getElementById('rectButton');
   var circleButton = document.getElementById('circleButton');
   var lineButton = document.getElementById('lineButton');
@@ -118,10 +120,10 @@ function drawLine(event){
         //console.log(a)
         
         
+                
         context.strokeStyle=convertedColor;
 
       //  colorButton.color.hidePicker();
-
     }
 
 
