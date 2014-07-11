@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", init, false);
+window.addEventListener("resize",resizeCanvas,false);
 
 var canvas;
+var demo;
 var context;
 var tool;
 var option;
@@ -10,22 +12,20 @@ var numOfClicks = 0;
 function init() {
 
   canvas = document.getElementById("canvas");
-  canvas.width = (window.innerWidth - 13);
-  canvas.height = (window.innerHeight - 27);
+  
   context = canvas.getContext('2d');
 
 
+
+  resizeCanvas();
 
   var rectButton = document.getElementById('rectButton');
   var circleButton = document.getElementById('circleButton');
   var lineButton = document.getElementById('lineButton');
   var colorButton = document.getElementById('colorButton');
   var clearButton = document.getElementById('clearButton');
-
-  var imported = document.createElement('script');
-  imported.src = 'jscolor\\jscolor.js';
-  document.body.appendChild(imported);
-
+  
+  
   colorButton.onclick = function() {
     switchColor(context);
   }
@@ -43,8 +43,10 @@ function init() {
     setTool("line");
   }
 
+  
+}  
 
-  function setTool(option) {
+function setTool(option) {
     tool = option;
 
     if (tool == "rect") {
@@ -116,4 +118,11 @@ function init() {
     context.strokeStyle = convertedColor;
   }
 
-}
+  function resizeCanvas(){
+  
+  canvas.width = (window.innerWidth - 13);
+  canvas.height = (window.innerHeight - 27);
+  
+  }
+
+  
