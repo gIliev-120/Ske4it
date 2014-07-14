@@ -1,3 +1,14 @@
 body{overflow: hidden;}
 #canvas{position:absolute;top:4%;;left:0.4%;right:0%;border:2px solid black;}
 #buttons{position: absolute;top:0%;left:0.4%;}
+#saveMe,a:link,a:active,a:visited {
+		color: #000;
+		text-decoration: none;
+		-webkit-appearance:button ;
+		-moz-appearance:button ;
+		appearance:button ;
+		position: absolute;
+		top: 0%;
+		left: 100%;
+
+	}
