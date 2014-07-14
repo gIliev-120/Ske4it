@@ -24,7 +24,11 @@ function init() {
   var lineButton = document.getElementById('lineButton');
   var colorButton = document.getElementById('colorButton');
   var clearButton = document.getElementById('clearButton');
-  
+  //var saveButton= document.getElementById('saveButton');
+
+  var saveLink = document.getElementById('saveMe');
+
+
   
   colorButton.onclick = function() {
     switchColor(context);
@@ -42,6 +46,12 @@ function init() {
   lineButton.onclick = function() {
     setTool("line");
   }
+
+  saveLink.onclick = function(){
+   saveFile(this,'canvas','canvas.png');
+
+  }
+
 
   
 }  
@@ -125,4 +135,9 @@ function setTool(option) {
   
   }
 
-  
+  function saveFile(link,idCanvas,filename){
+    
+    link.href = document.getElementById(idCanvas).toDataURL();
+    link.download = filename;
+    
+  }
